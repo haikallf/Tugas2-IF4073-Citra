@@ -1,6 +1,6 @@
 img = imread('C:\Users\haika\Documents\Semester 7\Pengcit\Tugas 2\img\test.png');
 
-Mask = [0, 0, 1; 0, 0, 0; 0, 0, 0; 0, 0, 0];
+Mask = [0, 0, 2; 2, 2, 1; 1, 1, 1; 1, 1, 1];
 
 [x, y, z] = size(img);
 B = zeros(x, y, 'uint8');
@@ -10,5 +10,5 @@ for i = 2 : x-3
     end
 end
 
-imshow(B, []);
+disp(B);
 
