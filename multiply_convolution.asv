@@ -1,0 +1,28 @@
+clc
+clear
+
+matrix = [4 4 3 5 4; 6 6 5 5 2; 5 6 6 6 2; 6 7 5 5 3; 3 5 2 4 4];
+kernel = [0 -1 0; -1 4 -1; 0 -1 0];
+
+function conv_product = multiply_convolution(mat, ker)
+    [x,y] = size(mat);
+    [a,b] = size(ker);
+    row_size = (x-(a-1));
+    col_size = (y-(b-1));
+    
+    conv_product = zeros(row_size,col_size);
+    
+    for i = 1:row_size
+        for j= 1:col_size
+            sum = 0;
+            for k = 1:a
+                for l=1:b
+                    sum = sum + matrix(i+k-1,j+l-1)*kernel(k,l);
+                end
+            end
+            conv_product(i,j) = sum;
+        end
+    end
+end
+
+conv = multiply_convolution(matrix, kernel)
