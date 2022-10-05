@@ -112,17 +112,11 @@ end
 
 % --- Executes on selection change in soal3__dropdown.
 function soal3__dropdown_Callback(hObject, eventdata, handles)
-idx = get(handles.soal3__dropdown,'Value');
-items = get(handles.soal3__dropdown,'String');
+idx = get(handles.soal2__dropdown,'Value');
+items = get(handles.soal2__dropdown,'String');
 selectedItem = items{idx};
 
-if (selectedItem == "Butterworth Highpass Filter")
-    set(handles.soal3__inputNTxt,'visible','on');
-    set(handles.soal3__inputN,'visible','on');
-else
-    set(handles.soal3__inputNTxt,'visible','off');
-    set(handles.soal3__inputN,'visible','off');
-end
+if (selectedItem == "Butterworth Highpass Fil")
 
 
 % --- Executes during object creation, after setting all properties.
@@ -155,8 +149,7 @@ switch selectedItem
     case "Ideal Highpass Filter"
         [outputImage, fSpec] = ihpf(img);
     case "Butterworth Highpass Filter"
-        n = get(handles.soal3__inputN,'String');
-        [outputImage, fSpec] = bhpf(img, n);
+        [outputImage, fSpec] = bhpf(img, 2);
     case "Gaussian Highpass Filter"
         [outputImage, fSpec] = ghpf(img);
     otherwise
