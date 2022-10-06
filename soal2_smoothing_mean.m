@@ -107,6 +107,7 @@ end
 % --- Executes on button press in home_btn.
 function home_btn_Callback(hObject, eventdata, handles)
 close(soal2_smoothing_mean);
+Home;
 
 
 % --- Executes on button press in smoothing.

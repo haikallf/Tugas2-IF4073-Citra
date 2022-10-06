@@ -75,7 +75,9 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in home_btn.
 function home_btn_Callback(hObject, eventdata, handles)
-close(Soal1);
+close(soal1);
+Home;
+
 
 
 

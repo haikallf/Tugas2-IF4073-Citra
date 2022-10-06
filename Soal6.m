@@ -22,7 +22,7 @@ function varargout = Soal6(varargin)
 
 % Edit the above text to modify the response to help Soal6
 
-% Last Modified by GUIDE v2.5 06-Oct-2022 22:20:06
+% Last Modified by GUIDE v2.5 06-Oct-2022 23:58:03
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -116,3 +116,9 @@ title('Fourier Spectrum');
 axes(handles.soal6__outputImg);
 imshow(outputImage, []);
 title('Output Image');
+
+
+% --- Executes on button press in soal6__goToHomeBtn.
+function soal6__goToHomeBtn_Callback(hObject, eventdata, handles)
+close(Soal6);
+Home;

@@ -105,6 +105,7 @@ end
 % --- Executes on button press in home_btn.
 function home_btn_Callback(hObject, eventdata, handles)
 close(soal4);
+Home;
 
 
 function alfa_Callback(hObject, eventdata, handles)
@@ -141,6 +142,5 @@ axes(handles.axes1);
 imshow(img);
 
 axes(handles.axes2);
-img = im2gray(img);
 brigthened = brigthened_img(img, alfa);
 imshow(brigthened);

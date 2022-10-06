@@ -82,9 +82,8 @@ set(handles.soal3__directory, 'String', fullname);
 
 % --- Executes on button press in soal3__goToHomeBtn.
 function soal3__goToHomeBtn_Callback(hObject, eventdata, handles)
-% hObject    handle to soal3__goToHomeBtn (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+close(Soal3);
+Home;
 
 
 

@@ -105,6 +105,7 @@ end
 % --- Executes on button press in home_btn.
 function home_btn_Callback(hObject, eventdata, handles)
 close(soal2_smoothing_glpf);
+Home;
 
 % --- Executes on button press in glpf_smooth.
 function glpf_smooth_Callback(hObject, eventdata, handles)
