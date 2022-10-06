@@ -83,6 +83,7 @@ set(handles.soal5__directory, 'String', fullname);
 % --- Executes on button press in soal5__goToHomeBtn.
 function soal5__goToHomeBtn_Callback(hObject, eventdata, handles)
 close(Soal5);
+Home;
 
 
 
