@@ -114,15 +114,26 @@ end
 function soal5__executeBtn_Callback(hObject, eventdata, handles)
 fullname = get(handles.soal5__directory, 'String');
 img = imread(fullname);
+[x, y, z] = size(img);
+
 noisyImage = imnoise(img,'salt & pepper', 0.1);
 
 axes(handles.soal5__inputImg);
 imshow(noisyImage);
 title('Input Image');
 
-outputImage = medfil(noisyImage);
+if (z == 1)
+    outputImage = medfil(noisyImage);
+else
+    outputImageR = medfil(noisyImage(:, :, 1));
+    outputImageG = medfil(noisyImage(:, :, 2));
+    outputImageB = medfil(noisyImage(:, :, 3));
+    outputImage = cat(3, outputImageR, outputImageG, outputImageB);
+    outputImage = uint8(outputImage);
+    disp("dah")
+end
 
 axes(handles.soal5__outputImg);
-imshow(outputImage, []);
+imshow(outputImage);
 title('Output Image');
 
