@@ -41,7 +41,7 @@ switch noiseImageOption
             end
        end
        for i=270:440
-            for j=210:255
+            for j=270:330
                 fShift(i, j) = 0;
             end
         end
