@@ -1,9 +1,0 @@
-
-matrix = rand(1000)
-[x,y] = size(matrix)
-kernel = [0 -1 0; -1 4 -1; 0 -1 0];
-mat1 = multiply_convolution(matrix, kernel);
-conv = round(conv,4);
-conv_mat = conv2(matrix, kernel, 'valid');
-conv_mat = round(conv_mat,4);
-isequal(conv,conv_mat)
