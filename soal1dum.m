@@ -1,15 +1,14 @@
-Mask = ones(8);
-Mask = Mask/(length(Mask)*length(Mask))
+Mask = [0 -1 0; 0 5 -1; 0 -1 0];
 img = imread('img\butter2.png');
 
-meaned_Image = processing_convo(img, Mask);
+filteredImage = processing_convo(img);
 
 figure(2);
-imshow(meaned_Image);
+imshow(filteredImage);
 title('Manual convolution (zero-padding)');
 
 
-solution = zeros(x-length(Mask)+1, y-length(Mask)+1, z);
+solution = zeros(x-2, y-2, z);
 for i = 1 : z
     solution(:, :, i) = conv2(img(:, :, i), Mask, 'valid');
 end

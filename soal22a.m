@@ -1,12 +1,22 @@
 
 img = imread('img\butter2.png');
-img = im2gray(img);
-smoothed_ilpf = ilpf(img,50);
+[x,y,z] = size(img);
+
+if (z == 1)
+    smoothed_ilpf = ilpf(img,50);
+else
+    smoothed_ilpfR = ilpf(img(:, :, 1), 50);
+    smoothed_ilpfG = ilpf(img(:, :, 2), 50);
+    smoothed_ilpfB = ilpf(img(:, :, 3), 50);
+    smoothed_ilpf = cat(3, smoothed_ilpfR, smoothed_ilpfG, smoothed_ilpfB);
+    smoothed_ilpf = uint8(smoothed_ilpf);
+end
+
 smoothed_glpf = glpf(img,50);
 
 smoothed_blpf = blpf(img,50,1);
 
-figure, imshow(smoothed_ilpf); 
+figure, imshow(smoothed_ilpf, []); 
 title('ilpf');
 figure, imshow(smoothed_glpf); 
 title('glpf');

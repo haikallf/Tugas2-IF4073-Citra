@@ -1,4 +1,5 @@
-function  convoluted  = processing_convo(img, Mask)
+function  convoluted  = processing_convo(img)
+    Mask = [0 -1 0; 0 4 -1; 0 -1 1];
     [x,y,z] = size(img);
     [a,b] = size(Mask);
 

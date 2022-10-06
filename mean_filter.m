@@ -1,4 +1,7 @@
-function  meaned  = mean_filter(img, Mask)
+function  meaned  = mean_filter(img,fil_size)
+    fil_size
+    Mask = ones(fil_size);
+    Mask = Mask/(length(Mask)*length(Mask));
     [x,y,z] = size(img);
     [a,b] = size(Mask);
 
@@ -7,5 +10,5 @@ function  meaned  = mean_filter(img, Mask)
         meaned(:, :, i) = convolution_mult(img(:, :, i) , Mask);
     end
 
-    meaned = cast(convoluted, 'like', img); %turn it to uint8 form instead of double
+    meaned = cast(meaned, 'like', img); %turn it to uint8 form instead of double
 end

@@ -1,5 +1,5 @@
 function  convImage  = convolution_mult(img, kernel)
-filterSize = length(kernel)
+filterSize = length(kernel);
 [rows, columns] = size(img);
 for col = 1 : columns - (filterSize-1)
 	for row = 1 : rows -(filterSize-1)
