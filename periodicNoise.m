@@ -4,21 +4,19 @@ function [inputImage, fSpec, outputImage] = periodicNoise(noiseImageOption)
 
 switch noiseImageOption
     case "Noise A"
-        img = imread("./img/4-1-1.png");
+        img = imread("./img/6-1.png");
     case "Noise B"
-       img = imread("./img/4-2-1.png");
+       img = imread("./img/6-2.png");
     case "Noise C"
-        img = imread("./img/4-3-1.png");
+        img = imread("./img/6-3.png");
     case "Noise D"
-        img = imread("./img/4-4-1.png");
+        img = imread("./img/6-4.png");
     otherwise
-        img = imread("./img/4-1-1.png");
+        img = imread("./img/6-1.png");
 end
 
 img = im2gray(img);
 [x, y] = size(img);
-disp(x);
-disp(y);
 
 inputImage = img;
 
@@ -37,14 +35,34 @@ switch noiseImageOption
             end
         end
     case "Noise B"
-       fShift = medfil(fShift);
+       for i=100:250
+            for j=210:255
+                fShift(i, j) = 0;
+            end
+       end
+       for i=270:440
+            for j=210:255
+                fShift(i, j) = 0;
+            end
+        end
     case "Noise C"
         fShift(145:x, 1:250) = 0;
         fShift(1:250, 155:y) = 0;
     case "Noise D"
-        disp("Belum");
+        for i=1:240
+            for j=330:340
+                fShift(i, j) = 0;
+            end
+        end
     otherwise
-        disp("Belum");
+        for i=175:190
+            for j=55:70
+                fShift(i, j) = 0;
+            end
+            for j=175:190
+                fShift(i, j) = 0;
+            end
+        end
 end
 
 outputImage = real(ifft2(ifftshift(fShift)));
